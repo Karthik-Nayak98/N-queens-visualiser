@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>N-Queen-Visualiser</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="navbar"><h2>N-Queens Visualiser</h2></nav>
+    <div class="n-queen">
+      <input
+        type="number"
+        id="numberbox"
+        class="numberbox"
+        name="numberbox"
+        min="0"
+        value="0"
+        max="8"
+      />
+      <button class="button" onclick="getValue()">Start</button>
+      <div id="n-queen__board">
+        <table id="myTable"></table>
+      </div>
+    </div>
+    <script src="N-queens.js"></script>
+  </body>
+</html>
