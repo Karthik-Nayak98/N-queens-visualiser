@@ -56,6 +56,11 @@ div.n-queen {
 .button:hover {
   opacity: 0.7;
 }
+
+#n-queen__board {
+  display: flex;
+}
+
 #myTable {
   position: absolute;
   top: 120px;
