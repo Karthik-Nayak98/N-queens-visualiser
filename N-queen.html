@@ -12,18 +12,28 @@
   </head>
   <body>
     <nav class="navbar"><h2>N-Queens Visualiser</h2></nav>
+
     <div class="n-queen">
-      <input
-        type="number"
-        id="numberbox"
-        class="numberbox"
-        name="numberbox"
-        min="0"
-        max="8"
-      />
+      <input type="number" id="numberbox" class="numberbox" min="0" max="8" />
+      <label class="queen-count">Enter number of Queens</label>
+
+      <div class="slider-container">
+        <input
+          class="slider"
+          id="slider"
+          type="range"
+          min="10"
+          max="100"
+          value="50"
+        />
+
+        <span id="slider-value"></span>
+      </div>
+
       <button class="button" onclick="getValue()">
         Start
       </button>
+
       <div id="n-queen__board">
         <table id="myTable"></table>
         <!-- <table id="myTable"></table> -->

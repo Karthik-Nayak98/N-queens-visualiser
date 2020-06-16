@@ -6,8 +6,8 @@
 nav.navbar {
   width: 100%;
   height: 50px;
-  background-color: blue;
-  color: white;
+  background-color: #011627;
+  color: #fdfffc;
 }
 nav h2 {
   position: absolute;
@@ -16,58 +16,167 @@ nav h2 {
 
 div.n-queen {
   position: relative;
-  margin: 0 auto;
-  width: 500px;
+  margin: auto;
+  width: 35%;
   height: auto;
 }
 
-.numberbox {
+input.numberbox {
   position: absolute;
-  margin: 10px -20px;
   width: 100%;
-  top: 20px;
+  top: 25px;
+  padding-left: 8px;
+  padding-bottom: 4px;
+  font-size: 16px;
   border: none;
-  outline: none;
-  padding-left: 10px;
-  font-size: medium;
   border-bottom: 1px solid black;
+  outline: none;
+  background: transparent;
 }
 
-.numberbox:focus {
-  border-bottom: 2px solid blueviolet;
+input[type="number"]:focus,
+input[type="number"]:valid {
+  border-bottom: 2px solid #118ab2;
+}
+
+label {
+  position: absolute;
+  top: 0px;
+  left: 4px;
+  color: #2ec4b6;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  pointer-events: none;
+  transition: all 0.4s ease-in-out;
+}
+
+input[type="number"]:focus ~ label,
+input[type="number"]:valid ~ label {
+  top: 6px;
+  left: 0px;
+  font-size: 13px;
+  color: #118ab2;
+  font-weight: 400;
+}
+
+.slider-container {
+  position: relative;
+  top: 20px;
+}
+
+.slider {
+  -webkit-appearance: none;
+  position: absolute;
+  top: 43px;
+  left: 0px;
+  width: 70%;
+  height: 5px;
+  border-radius: 7px;
+  background: linear-gradient(90deg, #e8eddf 60%, #e8eddf 60%);
+  cursor: pointer;
+  outline: none;
+}
+
+#slider-value {
+  position: absolute;
+  top: 35px;
+  left: 330px;
+  width: 40px;
+  height: 20px;
+  padding-top: 1px;
+  background-color: #f8961e;
+  text-align: center;
+  color: #f1faee;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 0 8px 8px 0;
+}
+
+#slider-value::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  right: 30px;
+  width: 10px;
+  height: 10px;
+  transform: translate(-50%) rotate(45deg);
+  background-color: #f8961e;
+}
+
+/* Google Chrome */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  background-color: #fa7921;
+  border-radius: 50%;
+}
+.slider::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  height: 15px;
+  width: 15px;
+  color: #ffba08;
+}
+
+/* Mozilla firefox */
+.slider::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  background-color: #fa7921;
+  border-radius: 50%;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #fa7921;
+}
+.slider::after {
+  content: "10";
+  position: absolute;
+  top: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fa7921;
+}
+
+.slider::before {
+  content: "100";
+  position: absolute;
+  top: 12px;
+  right: 0px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fa7921;
 }
 
 .button {
   position: absolute;
-  top: 70px;
-  left: 180px;
+  top: 100px;
+  left: 195px;
   border: none;
   outline: none;
-  color: white;
+  color: #fdfffc;
   width: 70px;
   height: 35px;
-  background-color: orchid;
-  border-radius: 7px;
+  background-color: #f72585;
+  border-radius: 9px;
   font-size: medium;
   font-weight: 600;
   cursor: pointer;
 }
 
 .button:hover {
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
 #n-queen__board {
   display: flex;
+  justify-content: center;
 }
 
 #myTable {
-  position: absolute;
-  top: 120px;
+  position: relative;
+  top: 150px;
   border-collapse: collapse;
-  display: flex;
-  float: right;
-  justify-content: center;
 }
 
 td {
