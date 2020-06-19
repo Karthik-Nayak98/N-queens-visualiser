@@ -1,12 +1,14 @@
-const chessBoard = document.getElementById("n-queen__board");
+const chessBoard = document.getElementById("n-queen-board");
 const textbox = document.getElementById("numberbox");
 const slider = document.getElementById("slider");
 const sliderValue = document.getElementById("slider-value");
 const playButton = document.getElementById("play-button");
 const pauseButton = document.getElementById("pause-button");
 
-const queen = '<i class="fas fa-chess-queen" style="color:#00bbf9"></i>';
+const queen = '<i class="fas fa-chess-queen" style="color:#000"></i>';
 
+
+textbox.autofocus = false;
 let n,
   speed = 0,
   Board = 0,
@@ -38,8 +40,8 @@ function clearColor(board) {
     const row = table.firstChild.childNodes[j];
     for (let k = 0; k < n; ++k)
       (j + k) & 1
-        ? (row.getElementsByTagName("td")[k].style.backgroundColor = "#7D8796")
-        : (row.getElementsByTagName("td")[k].style.backgroundColor = "#E8EBEF");
+        ? (row.getElementsByTagName("td")[k].style.backgroundColor = "#FF9F1C")
+        : (row.getElementsByTagName("td")[k].style.backgroundColor = "#FCCD90");
   }
 }
 
@@ -49,7 +51,7 @@ async function isValid(board, r, col, n) {
   const currentRow = table.firstChild.childNodes[r];
   currentColumn = currentRow.getElementsByTagName("td")[col];
   currentColumn.innerHTML = queen;
-  currentColumn.style.backgroundColor = "#FF9F1C";
+  // currentColumn.style.backgroundColor = "#FF9F1C";
 
   await new Promise((done) => setTimeout(() => done(), speed));
 
@@ -66,7 +68,7 @@ async function isValid(board, r, col, n) {
       currentColumn.innerHTML = "-"
       return false;
     }
-    column.style.backgroundColor = "#ffe66d";
+    column.style.backgroundColor = "#ffca3a";
     await new Promise((done) => setTimeout(() => done(), speed));
   }
 
@@ -82,7 +84,7 @@ async function isValid(board, r, col, n) {
       currentColumn.innerHTML = "-"
       return false;
     }
-    column.style.backgroundColor = "#ffe66d";
+    column.style.backgroundColor = "#ffca3a";
     await new Promise((done) => setTimeout(() => done(), speed));
   }
 
@@ -99,7 +101,7 @@ async function isValid(board, r, col, n) {
       currentColumn.innerHTML = "-"
       return false;
     }
-    column.style.backgroundColor = "#ffe66d";
+    column.style.backgroundColor = "#ffca3a";
     await new Promise((done) => setTimeout(() => done(), speed));
   }
   return true;
@@ -134,7 +136,6 @@ async function solveQueen(board, r, n) {
         clearColor(board);
 
       board = Board;
-      // return true;
       await new Promise((done) => setTimeout(() => done(), speed));
       table = document.getElementById(`table-${board}`);
       row = table.firstChild.childNodes[r];
@@ -145,7 +146,6 @@ async function solveQueen(board, r, n) {
       }
     }
   }
-  return;
 }
 
 async function nQueen() {
@@ -176,32 +176,55 @@ pauseButton.onclick = async function pause() {
 
 playButton.onclick = async function visualise() {
   n = textbox.value;
-  flag = true;
-  while (chessBoard.childElementCount != 0) {
-    chessBoard.removeChild(chessBoard.firstChild);
+
+  position = {};
+  console.log(position);
+  if (n > 8 || n < 0) {
+    alert("Cannot process that value");
+    return;
   }
+  flag = true;
+  // Removing all the of previous execution context 
+  while (chessBoard.hasChildNodes())
+    chessBoard.removeChild(chessBoard.lastChild);
+
+  const arrangement = document.getElementById("queen-arrangement");
+
+  while (arrangement.hasChildNodes())
+    arrangement.removeChild(arrangement.firstChild)
+
+  let para = document.createElement("p");
+  para.setAttribute("class", "queen-info");
+  para.innerHTML = `For ${n}x${n} board, ${array[n] - 1} arrangements are possible.`;
+  arrangement.appendChild(para);
 
   //Adding the same child to the DOM
   if (chessBoard.childElementCount == 0) {
     for (let i = 0; i < array[n]; ++i) {
+      let div = document.createElement('div');
       let table = document.createElement("table");
+      let header = document.createElement("h4");
+      div.setAttribute("id", `div-${i}`)
+      header.innerHTML = `Board ${i + 1}`
       table.setAttribute("id", `table-${i}`);
-      chessBoard.appendChild(table);
+      header.setAttribute("id", `paragraph-${i}`);
+      chessBoard.appendChild(div);
+      div.appendChild(header);
+      div.appendChild(table);
     }
   }
 
-  for (let tot = 0; tot < array[n]; ++tot) {
-    let table = document.getElementById(`table-${tot}`);
+  for (let k = 0; k < array[n]; ++k) {
+    let table = document.getElementById(`table-${k}`);
     for (let i = 0; i < n; ++i) {
       const row = table.insertRow(i); // inserting ith row
       row.setAttribute("id", `Row${i}`);
       for (let j = 0; j < n; ++j) {
         const col = row.insertCell(j); // inserting jth column
         (i + j) & 1
-          ? (col.style.backgroundColor = "#7D8796")
-          : (col.style.backgroundColor = " #E8EBEF");
+          ? (col.style.backgroundColor = "#FF9F1C") : (col.style.backgroundColor = "#FCCD90");
         col.innerHTML = "-";
-        col.style.border = "2px solid #373f51";
+        col.style.border = "0.5px solid #373f51";
       }
     }
   }

@@ -21,55 +21,51 @@ div.n-queen {
   height: auto;
 }
 
-input.numberbox {
-  position: absolute;
+div.inputbox {
+  position: relative;
+  top: 15px;
+}
+
+.inputbox input {
   width: 100%;
-  top: 25px;
-  padding-left: 8px;
-  padding-bottom: 4px;
+  padding: 6px;
   font-size: 16px;
+  margin-bottom: 25px;
   border: none;
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid #2ec4b6;
   outline: none;
   background: transparent;
-  z-index: 1;
 }
 
-input[type="number"]:focus,
-input[type="number"]:valid {
-  border-bottom: 2px solid #118ab2;
-}
-
-label {
+.inputbox label {
   position: absolute;
-  top: 0px;
-  left: 4px;
+  top: 0;
+  left: -2px;
+  padding: 6px 4px;
   color: #2ec4b6;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   pointer-events: none;
-  transition: all 0.4s ease-in-out;
+  transition: 0.3s;
 }
 
-input[type="number"]:focus ~ label,
-input[type="number"]:valid ~ label {
-  top: 6px;
-  left: 0px;
-  font-size: 13px;
+.inputbox input:focus ~ label,
+.inputbox input:valid ~ label {
+  top: -16px;
+  font-size: 14px;
   color: #118ab2;
   font-weight: 400;
 }
 
 .slider-container {
   position: relative;
-  top: 20px;
 }
 
 .slider {
   -webkit-appearance: none;
-  position: absolute;
-  top: 43px;
-  left: 60px;
+  position: relative;
+  top: -4px;
+  left: 30px;
   width: 70%;
   height: 5px;
   border-radius: 7px;
@@ -80,8 +76,7 @@ input[type="number"]:valid ~ label {
 
 #slider-value {
   position: absolute;
-  top: 32px;
-  right: 25px;
+  right: 55px;
   width: 40px;
   height: 25px;
   padding-top: 3px;
@@ -151,10 +146,10 @@ input[type="number"]:valid ~ label {
   color: #fa7921;
 }
 
-.play-button {
+.slider-container .play-button {
   position: relative;
-  top: 90px;
-  left: 130px;
+  top: 55px;
+  left: -200px;
   border: none;
   outline: none;
   color: #fdfffc;
@@ -162,17 +157,17 @@ input[type="number"]:valid ~ label {
   height: 35px;
   background-color: #f72585;
   border-radius: 10px;
-  font-size: medium;
+  font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.3s ease-in-out;
   z-index: 1;
 }
 
-.pause-button {
+.slider-container .pause-button {
   position: relative;
-  top: 90px;
-  left: 150px;
+  top: 20px;
+  left: 220px;
   border: none;
   outline: none;
   color: #fdfffc;
@@ -180,10 +175,10 @@ input[type="number"]:valid ~ label {
   height: 35px;
   background-color: #f72585;
   border-radius: 10px;
-  font-size: medium;
+  font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.3s ease-in-out;
   z-index: 1;
 }
 
@@ -193,20 +188,43 @@ input[type="number"]:valid ~ label {
   transform: scale(1.1);
 }
 
-#n-queen__board {
+.queen-arrangement {
+  position: relative;
+  top: 40px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: #fa7921;
+}
+#n-queen-board {
   position: relative;
   display: flex;
   width: 150%;
-  left: -90px;
+  top: 40px;
+  left: -120px;
   flex-wrap: wrap;
   justify-content: center;
+  /* border: 2px solid black; */
+}
+
+#n-queen-board div {
+  position: relative;
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 10px;
+  box-shadow: 0 4px 8px 0 rgb(0, 0, 0, 0.2);
+  border-radius: 3px;
 }
 
 table {
   position: relative;
-  top: 150px;
   border-collapse: collapse;
-  margin: 7px;
+  margin: 10px;
+  padding: 10px;
+  top: 5px;
+  margin-bottom: 10px;
   align-self: center;
 }
 
@@ -214,4 +232,16 @@ td {
   width: 35px;
   height: 35px;
   text-align: center;
+}
+
+h4 {
+  position: relative;
+  top: 10px;
+  padding: 10px;
+  width: 80%;
+  background-color: #0582ca;
+  align-self: center;
+  color: #fdfffc;
+  text-align: center;
+  border-radius: 4px 4px 0 0;
 }
