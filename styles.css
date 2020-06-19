@@ -32,6 +32,7 @@ input.numberbox {
   border-bottom: 1px solid black;
   outline: none;
   background: transparent;
+  z-index: 1;
 }
 
 input[type="number"]:focus,
@@ -68,7 +69,7 @@ input[type="number"]:valid ~ label {
   -webkit-appearance: none;
   position: absolute;
   top: 43px;
-  left: 0px;
+  left: 60px;
   width: 70%;
   height: 5px;
   border-radius: 7px;
@@ -79,23 +80,23 @@ input[type="number"]:valid ~ label {
 
 #slider-value {
   position: absolute;
-  top: 35px;
-  left: 330px;
+  top: 32px;
+  right: 25px;
   width: 40px;
-  height: 20px;
-  padding-top: 1px;
+  height: 25px;
+  padding-top: 3px;
   background-color: #f8961e;
   text-align: center;
   color: #f1faee;
   font-size: 18px;
   font-weight: 600;
-  border-radius: 0 8px 8px 0;
+  border-radius: 8px;
 }
 
 #slider-value::before {
   content: "";
   position: absolute;
-  top: 6px;
+  top: 10px;
   right: 30px;
   width: 10px;
   height: 10px;
@@ -115,6 +116,7 @@ input[type="number"]:valid ~ label {
   -webkit-appearance: none;
   height: 15px;
   width: 15px;
+  z-index: 1;
   color: #ffba08;
 }
 
@@ -129,8 +131,9 @@ input[type="number"]:valid ~ label {
 .slider::-webkit-slider-thumb:hover {
   box-shadow: 0 0 0 2px white, 0 0 0 4px #fa7921;
 }
+
 .slider::after {
-  content: "10";
+  content: "SLOW";
   position: absolute;
   top: 12px;
   font-size: 14px;
@@ -139,7 +142,7 @@ input[type="number"]:valid ~ label {
 }
 
 .slider::before {
-  content: "100";
+  content: "FAST";
   position: absolute;
   top: 12px;
   right: 0px;
@@ -148,40 +151,67 @@ input[type="number"]:valid ~ label {
   color: #fa7921;
 }
 
-.button {
-  position: absolute;
-  top: 100px;
-  left: 195px;
+.play-button {
+  position: relative;
+  top: 90px;
+  left: 130px;
   border: none;
   outline: none;
   color: #fdfffc;
-  width: 70px;
+  width: 85px;
   height: 35px;
   background-color: #f72585;
-  border-radius: 9px;
+  border-radius: 10px;
   font-size: medium;
   font-weight: 600;
   cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  z-index: 1;
 }
 
-.button:hover {
+.pause-button {
+  position: relative;
+  top: 90px;
+  left: 150px;
+  border: none;
+  outline: none;
+  color: #fdfffc;
+  width: 90px;
+  height: 35px;
+  background-color: #f72585;
+  border-radius: 10px;
+  font-size: medium;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  z-index: 1;
+}
+
+.play-button:hover,
+.pause-button:hover {
   opacity: 0.6;
+  transform: scale(1.1);
 }
 
 #n-queen__board {
+  position: relative;
   display: flex;
+  width: 150%;
+  left: -90px;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
-#myTable {
+table {
   position: relative;
   top: 150px;
   border-collapse: collapse;
+  margin: 7px;
+  align-self: center;
 }
 
 td {
-  border: 2px solid lightblue;
-  width: 45px;
-  height: 45px;
+  width: 35px;
+  height: 35px;
   text-align: center;
 }
