@@ -10,28 +10,25 @@
 </head>
 
 <body>
-  <nav class="navbar">
-    <h2>N-Queens Visualiser <i class="fas fa-chess-queen" style="color:#fdfffc"></i></h2>
-  </nav>
-
+  <header class="header">
+    <h2>N-Queens Visualiser <i class="fas fa-crown" style="color:#fdfffc"></i></h2>
+  </header>
   <div class="n-queen">
     <div class="inputbox">
-      <input type="number" id="numberbox" min="0" max="8" required />
-      <label for="total-queens">Enter total Queens</label>
+      <input type="number" class="numberbox" id="numberbox" required />
+      <label>Enter total Queens</label>
     </div>
 
     <div class="slider-container">
-      <input class="slider" id="slider" type="range" min="10" max="100" value="52" />
-      <span id="slider-value"></span>
-
-      <button class="play-button" id="play-button"><i class="fa fa-play" aria-hidden="true"></i> Play </button>
-      <button class="pause-button" id="pause-button"><i class="fa fa-pause" aria-hidden="true"></i> Pause</button>
+      <input class="slider" id="slider" type="range" min="0" max="100" value="60" />
+      <div id="progress-bar"></div>
     </div>
-    <div class="queen-arrangement" id="queen-arrangement">
-    </div>
-    <div id="n-queen-board"></div>
+    <button class="play-button" id="play-button"><i class="fa fa-play" aria-hidden="true"></i> Play </button>
+  </div>
 
-    <script src="N-queens.js"></script>
+  <div class="queen-arrangement" id="queen-arrangement">
+  </div>
+  <div id="n-queen-board"></div>
 </body>
 
 </html>
