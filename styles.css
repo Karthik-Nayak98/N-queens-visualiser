@@ -9,6 +9,8 @@ body {
 }
 
 .header {
+  position: relative;
+  top: -20px;
   width: 100%;
   background-color: #011627;
   color: #fdfffc;
