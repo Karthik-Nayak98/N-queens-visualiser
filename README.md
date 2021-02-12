@@ -5,3 +5,5 @@
 - This algorithm is designed using recursion.
 
 ![N-Queen-visualisation](visualisation.gif)
+
+**<p align='center'>You can find the website live <a href="https://nqueen.netlify.app/">here</a></p>**
